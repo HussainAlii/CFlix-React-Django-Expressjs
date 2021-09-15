@@ -1,0 +1,19 @@
+.tab-container h1 {
+    text-transform: capitalize;
+    color: white;
+    font-size: 25px;
+    border-right: 3px solid red;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    direction: rtl;
+  }
+  .tab-container{
+    margin-left: 5%;
+    margin-right: 2%;
+  }
+  
+  .tab-row .box{
+      padding-right: 1px;
+      padding-left: 1px;
+  }

@@ -1,0 +1,22 @@
+.display-container {
+  margin: 2% 10%;
+  display: inline-block;
+}
+
+.display-container h1 {
+  text-transform: capitalize;
+  color: white;
+  font-size: 40px;
+  border-left: 3px solid red;
+  padding-left: 10px;
+}
+
+.infinite-scroll-component:first-child{
+  padding-top: 16px;
+}
+
+.infinite-scroll-component {
+  overflow: hidden !important;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}

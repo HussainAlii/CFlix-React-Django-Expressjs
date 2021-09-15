@@ -1,0 +1,25 @@
+footer h4{
+    margin-top: 80px;
+}
+
+footer{
+    background-color: rgb(0, 0, 0);
+}
+footer p,h4 {
+    color: rgb(153,153,153);
+    font-size: small;
+}
+
+.container{
+    margin-left: 20%;
+    margin-right: 20%;
+    width: auto;
+}
+
+.container p{
+    cursor: pointer;
+}
+
+.spacing{
+    padding-bottom: 120px;
+}

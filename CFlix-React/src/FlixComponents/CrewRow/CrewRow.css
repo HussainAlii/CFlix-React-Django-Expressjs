@@ -1,0 +1,57 @@
+.crew-row{
+    margin-left: 15px;
+}
+
+.carousel.carousel-slider {
+    margin: 0px auto;
+    overflow: visible;
+  }
+  
+  .carousel .slide {
+    color: white;
+  }
+  
+  .carousel .slide-holder {
+    display: flex;
+    justify-content: center !important;
+  }
+  .carousel .slide img{
+    margin-top: 30px;
+    width: 180px !important;
+    margin-right: 30px;
+    height: 180px;
+    object-fit: contain;
+
+  }
+
+  .carousel .text-container {
+    text-align: left;
+    display: inline-block;
+    margin-top: 3px;
+
+  }
+  
+  .thumbs{
+      margin: 0px;
+      margin-top: 10px;
+  }
+
+
+.popularity .box{
+    display: inline-block;
+}
+
+.popularity{
+    display: flex;
+}
+
+.popularity p{
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.text-container a{
+    text-decoration:none !important;
+    color: white;
+}

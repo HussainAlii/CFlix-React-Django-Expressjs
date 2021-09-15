@@ -1,0 +1,73 @@
+.userInfoContainer {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 13px;
+  margin-top: -30px;
+  flex-direction: row-reverse;
+
+  /* justify-content: center; */
+  
+}
+
+.userInfoContainer::before, .userInfoContainer::after {
+    content: '';  /* Insert pseudo-element */
+    margin: auto; /* Make it push flex items to the center */
+  }
+
+.flex-item {
+    margin: auto;
+ }
+
+.userInfoContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.Box {
+  color: white;
+  font-weight: 400;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #222222;
+  border-radius: 7px;
+  padding: 5px 10px;
+  background-color: #222222 !important;
+  margin: 5px;
+  transition: transform 500ms;
+  z-index: 1;
+}
+
+.Box:hover {
+  transform: scale(1.05);
+}
+
+.box-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.Box .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 250px;
+}
+
+.box-data-text {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-data-text .box-data-body {
+  margin-bottom: 10px;
+}

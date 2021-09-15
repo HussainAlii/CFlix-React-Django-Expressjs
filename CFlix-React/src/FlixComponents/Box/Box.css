@@ -1,0 +1,27 @@
+.box {
+  object-fit: contain;
+  margin-right: 10px;
+  transition: all 12ms;
+  cursor: pointer;
+  transition: transform 450ms;
+  display: inline-block;
+  justify-content: center !important;
+}
+
+.box:hover {
+  transform: scale(1.08);
+}
+
+.watched{
+  box-shadow: 0px 0px 6px blueviolet;
+}
+
+.notYet{
+  box-shadow: 0px 0px 6px white;
+}
+
+.boxinfo{
+  color: white;
+  padding-left: 5px;
+  font-size: 14px;
+}

@@ -1,0 +1,27 @@
+.row {
+  margin-top: -120px;
+  z-index: 10 !important;
+}
+
+.posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 20px;
+  margin-bottom: 120px;
+}
+
+.row .title {
+  position: relative;
+  margin-left: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.posterImg {
+}
+
+.bigText {
+  font-weight: bolder;
+  font-size: 30px;
+}

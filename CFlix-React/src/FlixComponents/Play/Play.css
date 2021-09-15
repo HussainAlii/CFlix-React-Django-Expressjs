@@ -1,0 +1,44 @@
+.Error{
+    align-content: center;
+    height: 350px;
+    margin-top: 120px;
+}
+
+.video-container{
+    margin: 1% 15%;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    height: auto;
+    padding-bottom: 10px;
+    border-radius: 0px 0px 60px 60px;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.checkImg{
+    width: 90px;
+    height: 100%;
+    object-fit: cover;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: block;
+
+}
+
+.check-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info b{
+    margin-right: 4px;
+}

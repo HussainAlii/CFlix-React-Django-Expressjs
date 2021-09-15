@@ -1,0 +1,132 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation-duration: 0.4s;
+  animation-name: fadein;
+}
+
+.model-search-body hr {
+  width: 100%;
+}
+
+.model-search {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(49,44,45);
+  border-radius: 7px;
+  z-index: 111;
+  background-color: #181a1b;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+
+  top: 40%;
+  left: 50%;
+
+  width: 900px;
+  height: 50%;
+}
+
+.model-search::-webkit-scrollbar{
+  display: none;
+}
+
+.model-search-header {
+  display: flex;
+  padding: 10px 15px;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid rgb(49,44,45);
+}
+
+.model-search .searchIcon {
+  padding-right: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.model-search .searchInput {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 21px;
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+}
+.model-search .searchInput:focus::-webkit-input-placeholder {
+  color: white;
+  transition: all 250ms ease-in-out;
+}
+
+.model-search-header .closeButton {
+  margin-left: auto;
+  margin-right: 7px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.model-search-body {
+  border: 0px rgb(49,44,45);
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.movie {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 2%;
+}
+
+.model-search-body .movieImgsm {
+  margin: 12px 0px;
+  width: 100px;
+  height: 130px;
+}
+
+.model-search-body .title {
+  color: white;
+
+}
+
+.green{
+  color: green;
+}
+.red{
+  color: rgb(206, 8, 8);
+}
+.orange{
+  color: rgb(199, 129, 0);
+}
+
+.nothing {
+  margin-left: 40%;
+  margin-right: 50%;
+  width: 100%;
+  color: white;
+}
