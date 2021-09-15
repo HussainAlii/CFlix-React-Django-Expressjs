@@ -1,0 +1,91 @@
+td{
+    color:white !important;
+}
+
+th{
+    color: red;
+}
+
+.form-select{
+    margin-top: 10px !important;
+    height: 60vh;
+    background-color: #222222;
+    color: white;
+}
+
+.select-list{
+    margin-top: 30px !important;
+
+}
+
+i{
+    margin-right: 10px;
+}
+
+.controls{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-bar{
+    display: inline-block;
+    width: 50vh;
+}
+
+/*   */
+
+.sign-content{
+    z-index: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 9px 10px;
+  margin: 8px 2px;
+  display: inline-block;
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/*button {*/
+/*  background-color: red;*/
+/*  color: white;*/
+/*  padding: 14px 20px;*/
+/*    border: none;*/
+/*  cursor: pointer;*/
+/*  width: 50%;*/
+/*  margin: 8px 0 8px 25%;*/
+/*        border-radius: 30px;*/
+
+/*}*/
+
+.file-uploader {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.6;
+    transition: all linear 160ms;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}

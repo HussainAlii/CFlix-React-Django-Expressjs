@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="../static/upload.css">
+
+    {% if request.session.username %}
+        <div class="" style="margin: 30px">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Upload</li>
+                </ol>
+            </nav>
+            <hr/>
+            <div class="row">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" id="dangerAlert" role="alert">
+                        <h6> {{ message }}</h6>
+                    </div>
+                {% endfor %}
+                <div id="success" class="alert alert-success" style="display:none;" role="alert">
+                    Deleted Successfully!
+                </div>
+                <div id="fail" class="alert alert-danger" style="display:none;" role="alert">
+
+                </div>
+                <form action="/video/uploadFile" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    <label class="file-uploader">
+                        <input onchange="setVid(this.files.item(0).name)" type="file" id="file" name="file"/>Select Video
+                    </label>
+
+                    <div style="margin-left: 0px; " class="row">
+                        <div class="row">
+                            <input class="col req" type="text" id="vid" placeholder="Video Id.." name="vid" required>
+                            <input class="col req" type="text" placeholder="Video type.." name="type" required>
+                        </div>
+                        <div class="row">
+                            <input class="col req" type="text" placeholder="Video quality.." name="quality" required>
+                            <input class="col" type="text" placeholder="season" name="season">
+                            <input class="col" type="text" placeholder="episode" name="episode">
+                        </div>
+                    </div>
+
+
+                        <button type="submit" name="submit" class="btn btn-primary"
+                           onclick="submitForm()">Submit</button>
+
+                        <div id="loading" class="spinner-border text-danger"
+                             style="display: none; margin-top: 5px; margin-left: 20px" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                </form>
+
+
+                <div class="select-list">
+                <hr/>
+                    <div class="controls">
+                        <button style="display: inline-block" type="submit" class="btn btn-danger" onclick="deleteVideos()"><i class="bi bi-trash">
+                        </i>Delete
+                        </button>
+
+                   <div class="search-bar">
+                        <div class="input-group col-md-4">
+                            <input onkeyup="updateList(this.value)" class="form-control py-2 border-right-0 border" type="search" placeholder="Search..." id="searchbar">
+                                <div style="background: white" class="btn border-left-0 border">
+                                    <i class="bi bi-search"></i>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                    <select id="selectList" class="form-select " multiple
+                            aria-label="multiple select example"> </select>
+
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+        function setVid(name){
+            document.getElementById('vid').value = extract_string(name)
+        }
+
+        function extract_string(s) {
+             var string = "";
+                var temp = "";
+                for(let i =0; i<s.length; i++ ){
+                    if( s[i] === '.'){
+                        string += temp
+                        temp = ""
+                     }
+                    temp += s[i]
+                }
+                return string
+                    }
+
+            function submitForm() {
+                let inputs = document.getElementsByClassName('req')
+                let isAllFilled = true
+                for(let i=0; i<inputs.length; i++){
+                    if(inputs[i].value.length===0){
+                        isAllFilled = false
+                        break
+                    }
+                }
+                if (isAllFilled)
+                    loader = document.getElementById('loading').style.display = 'inline-block'
+            }
+
+            const express = "http://localhost:3001/"
+
+            function sendDeleted(selected) {
+                   var xhrExpress = new XMLHttpRequest();
+                        xhrExpress.open("POST", express + "deleteVideos", true);
+                        xhrExpress.setRequestHeader('Content-Type', 'application/json');
+                        xhrExpress.onreadystatechange = function () {
+                            if (xhrExpress.readyState === XMLHttpRequest.DONE) {
+                                var success = document.getElementById('success')
+                                var fail = document.getElementById('fail')
+
+                                if (xhrExpress.responseText) {
+                                    fail.innerText = xhrExpress.responseText
+                                    fail.style.display = 'block'
+                                    success.style.display = 'none'
+                                } else {
+                                    success.style.display = 'block'
+                                    fail.style.display = 'none'
+                                }
+                            }
+                        }
+
+                        xhrExpress.send(JSON.stringify(
+                            {data: selected}
+                        ))
+
+                var xhrDjango = new XMLHttpRequest();
+                        xhrDjango.open("POST", '/video/deleteVideos', false);
+                        xhrDjango.setRequestHeader('Content-Type', 'application/json');
+                        xhrDjango.setRequestHeader('x-csrf-token', '{{ csrf_token }}');
+                        xhrDjango.setRequestHeader("Accept", "application/json");
+                        xhrDjango.send(JSON.stringify(
+                            {data: selected}
+                        ))
+            }
+
+
+
+            let data = {{ selectList | safe }}
+                function deleteVideos() {
+                    if (confirm('متأكد بتمسح الفيديوهات؟')) {
+
+                        var selected = [];
+                        for (var option of document.getElementById('selectList').options) {
+                            if (option.selected) {
+                                selected.push(option.value);
+                                data.splice(option.id, 1);
+                                updateList()
+                            }
+                        }
+                     sendDeleted(selected)
+
+                    }
+                }
+
+
+
+            function updateList(search = '') {
+                search = search.replaceAll(' ', '_')
+                var selectList = document.getElementById('selectList');
+                var child = selectList.lastElementChild;
+                while (child) {
+                    selectList.removeChild(child);
+                    child = selectList.lastElementChild;
+                }
+
+                if (search.length > 0) {
+                    for (let i = 0; i < data.length; i++) {
+                        let j = 0
+                        let include = true
+                        while (j < search.length) {
+                            if (search[j] !== data[i].name[j]) {
+                                include = false
+                                break
+                            }
+                            j++;
+                        }
+                        if (include)
+                            if(data[i].type)
+                                selectList.insertAdjacentHTML('beforeend', '<option id=' + i + ' value=' + data[i].name + '>' +  data[i].name + '  |  ' + data[i].type + ' - '+ data[i].season + data[i].episode + data[i].quality + '</option>');
+                            else
+                                selectList.insertAdjacentHTML('beforeend', '<option id=' + i + ' value=' + data[i].name + '>' +  data[i].name +'</option>');
+
+                    }
+                } else {
+                    for (let i = 0; i < data.length; i++) {
+                        if(data[i].type)
+                            selectList.insertAdjacentHTML('beforeend', '<option id=' + i + ' value=' + data[i].name + '>' +  data[i].name + '  |  ' + data[i].type + ' - '+ data[i].season + data[i].episode + data[i].quality + '</option>');
+                        else
+                            selectList.insertAdjacentHTML('beforeend', '<option id=' + i + ' value=' + data[i].name + '>' +  data[i].name +'</option>');
+
+                    }
+                }
+            }
+
+            updateList();
+
+        </script>
+    {% else %}
+        <meta http-equiv="REFRESH" content="0;url=/">
+    {% endif %}
+{% endblock content %}

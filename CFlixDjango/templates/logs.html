@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="../static/logs.css">
+
+    {% if request.session.username %}
+        <div class="" style="margin: 30px">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Logs</li>
+                </ol>
+            </nav>
+            <hr/>
+            <div class="row">
+                <div class="col-3 control">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-All-list"
+                           data-bs-toggle="list" href="#list-All" role="tab" aria-controls="list-All">All</a>
+                        <a class="list-group-item list-group-item-action" id="list-Authentication-list"
+                           data-bs-toggle="list" href="#list-Authentication" role="tab"
+                           aria-controls="list-Authentication">Authentication logs</a>
+                        <a class="list-group-item list-group-item-action" id="list-Action-list" data-bs-toggle="list"
+                           href="#list-Action" role="tab" aria-controls="list-Action">Action Logs</a>
+                    </div>
+                </div>
+
+                <div class="col-9">
+                    <div class="tab-content" id="nav-tabContent">
+
+                        {# All logs #}
+                        <div class="tab-pane fade show active" id="list-All" role="tabpanel" aria-labelledby="list-All">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-default card-view">
+                                        <div class="table-wrap">
+                                            <div class="table-responsive">
+                                                {% if logs %}
+                                                    <table id="datable_1" class="table  display table-hover mb-30">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#NO</th>
+                                                            <th>User ID</th>
+                                                            <th>Details</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Admin</th>
+                                                            <th>IP</th>
+
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for i in logs %}
+                                                            <tr style="{% if i.alert %} background-color: red {% endif %}">
+                                                                <td>{{ i.pk }}</td>
+                                                                <td>{{ i.uid }}</td>
+                                                                <td>{{ i.details }}</td>
+                                                                <td>{{ i.happens_date.date }}</td>
+                                                                <td>{{ i.happens_date.time }}</td>
+                                                                <td><input onclick="return false;" type="checkbox" {% if i.isAdmin %}checked {% endif %}/></td>
+                                                               <td>{{ i.ip }}</td>
+
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                {% else %}
+                                                    <h5>No record have been logged yet!</h5>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Auth logs #}
+                        <div class="tab-pane fade" id="list-Authentication" role="tabpanel" aria-labelledby="list-Authentication">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-default card-view">
+                                        <div class="table-wrap">
+                                            <div class="table-responsive">
+                                                {% if logs %}
+                                                    <table id="datable_1" class="table  display table-hover mb-30">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#NO</th>
+                                                            <th>User ID</th>
+                                                            <th>Details</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Admin</th>
+                                                            <th>IP</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for i in auth %}
+                                                            <tr style="{% if i.alert %} background-color: red {% endif %}">
+                                                                <td>{{ i.pk }}</td>
+                                                                <td>{{ i.uid }}</td>
+                                                                <td>{{ i.details }}</td>
+                                                                <td>{{ i.happens_date.date }}</td>
+                                                                <td>{{ i.happens_date.time }}</td>
+                                                                <td><input onclick="return false;" type="checkbox" {% if i.isAdmin %}checked {% endif %}/></td>
+                                                                <td>{{ i.ip }}</td>
+
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                {% else %}
+                                                    <h5>No record have been logged yet!</h5>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Action logs #}
+                        <div class="tab-pane fade" id="list-Action" role="tabpanel" aria-labelledby="list-Action">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-default card-view">
+                                        <div class="table-wrap">
+                                            <div class="table-responsive">
+                                                {% if logs %}
+                                                    <table id="datable_1" class="table  display table-hover mb-30">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#NO</th>
+                                                            <th>User ID</th>
+                                                            <th>Details</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Admin</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for i in action %}
+                                                            <tr>
+                                                                <td>{{ i.pk }}</td>
+                                                                <td>{{ i.uid }}</td>
+                                                                <td>{{ i.details }}</td>
+                                                                <td>{{ i.happens_date.date }}</td>
+                                                                <td>{{ i.happens_date.time }}</td>
+                                                                <td><input onclick="return false;" type="checkbox" {% if i.isAdmin %}checked {% endif %}/></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                {% else %}
+                                                    <h5>No record have been logged yet!</h5>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <meta http-equiv="REFRESH" content="0;url=/">
+    {% endif %}
+{% endblock content %}
