@@ -72,9 +72,11 @@ Similar to the Netflix web app and TV Time app, this app has been developed as a
 ![image](https://user-images.githubusercontent.com/58237246/133526380-ff85e574-944d-457f-a7c9-bb356166a10e.png)
 
 
-* Admin can upload movies & shows.
+* Admin can upload, delete and search for movies & shows.
 
 ![image](https://user-images.githubusercontent.com/58237246/133527164-a0f45718-a8ba-49de-81b3-267680de85df.png)
+
+![image](https://user-images.githubusercontent.com/58237246/133528572-3880d8a1-9d71-4887-8cad-61f9d0470862.png)
 
 
 * Admin can see all logs activity.
