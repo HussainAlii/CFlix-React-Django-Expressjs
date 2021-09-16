@@ -25,7 +25,7 @@ Similar to the Netflix web app and TV Time app, this app has been developed as a
     <!-- Outcomes -->
 ## Overall Outcomes/Achievements
   
-1.Sign up with google or as a guest.
+1. Sign up with google or as a guest.
   
   ![image](https://user-images.githubusercontent.com/58237246/133524375-9e711a1b-090f-4425-8b5f-3c8926246f8a.png)
 
