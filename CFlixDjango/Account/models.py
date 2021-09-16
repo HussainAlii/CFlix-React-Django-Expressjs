@@ -275,6 +275,13 @@ def setFinishedValue(json):
 def setMovieTime(json):
     data = Decode_Json_Request(json)
     user = User.objects.filter(uid=data.get('uid'), email=data.get('email')).first()
+    
+    movie = Movie.objects.filter(uid=user, movie_id=data.get('movie').get('id'), watched=True)
+
+    if movie.exists():
+        return
+
+
     user.movieTime = data.get('time')
     user.movieCount = data.get('count')
     user.save()
