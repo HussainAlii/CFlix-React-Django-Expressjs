@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="CFlix-React/src/FlixComponents/Icons/CFlix.png" alt="CFlix Logo">
+  <a href="https://CFlixapp.xyz">
+    <img src="https://github.com/HussainAlii/CFlix-React-Django-Expressjs/blob/main/CFlix/FlixComponents/Icons/CFlix.png?raw=true" alt="CFlix Logo">
   </a>
   
   <br />
