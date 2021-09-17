@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://CFlixapp.xyz">
-    <img src="https://github.com/HussainAlii/CFlix-React-Django-Expressjs/blob/main/CFlix/FlixComponents/Icons/CFlix.png?raw=true" alt="CFlix Logo">
+    <img src="CFlix.png" alt="CFlix Logo">
   </a>
   
   <br />
