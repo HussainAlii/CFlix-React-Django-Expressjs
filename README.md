@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="CFlix-React/src/FlixComponents/Icons/CFlix.png" alt="CFlix Logo">
+  <a href="https://CFlixapp.xyz">
+    <img src="CFlix.png" alt="CFlix Logo">
   </a>
   
   <br />
@@ -13,7 +13,7 @@
 ![image](https://user-images.githubusercontent.com/58237246/133517563-a9b021a4-651d-4e1b-8594-3fe6b4bdf854.png)
 
 
-Similar to the Netflix web app and TV Time app, this app has been developed as a clone version that has all the functionality of both apps. The web app uses themoviedb API to fetch tv shows and movies data and there are two rest APIs. Django and expressjs. the first one has been used to store and retrieve users info, and the other one to store and stream videos by using video encoding and decoding techniques.
+Similar to the Netflix web app and TV Time app, this web app has been developed as a clone version that has all the functionality of both apps. The web app uses themoviedb API to fetch tv shows and movies data and there are two rest APIs. Django and expressjs. the first one has been used to store and retrieve users info, and the other one to store and stream videos by using video encoding and decoding techniques.
   
 ### Built With
 
