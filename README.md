@@ -27,7 +27,7 @@ Similar to the Netflix web app and TV Time app, this web app has been developed 
 
 1. Responsive website.
   
-<img src="images/responsive.jpg" width="300px" height="500px" />
+<img src="images/responsive.jpg" width="300px" height="700px" />
   
 2. Sign up with google or as a guest.
   
