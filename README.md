@@ -6,7 +6,7 @@
   </a>
   
   <br />
-    <a href="https://CFlixapp.xyz">View Demo</a>
+    <a href="https://CFlix.co">View Demo</a>
 
   <!-- ABOUT THE PROJECT -->
 ## About The Project
